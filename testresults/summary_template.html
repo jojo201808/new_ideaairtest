@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UI自动化测试</title>
+    <style>
+        .fail {
+            color: red;
+            width: 7emem;
+            text-align: center;
+        }
+        .success {
+            color: green;
+            width: 7emem;
+            text-align: center;
+        }
+        .details-col-elapsed {
+            width: 7em;
+            text-align: center;
+        }
+        .details-col-msg {
+            width: 7em;
+            text-align: center;
+            background-color:#ccc;
+        }
+        h2{
+            text-align: center;
+            color: orange;
+        }
+        body {text-align: center;} 
+        table {margin: auto;}
+    </style>
+
+</head>
+<body>
+    <div>
+        <div><h2>ui自动化测试结果</h2></div>
+        <table width="800" border="thin" cellspacing="0" cellpadding="0">
+            <tr  width="600">
+                <th width="300" class='details-col-msg'>用例名称</th>
+                <th class='details-col-msg'>执行结果</th>
+            </tr>
+            {% for r in results %}
+            <tr width="600">
+                <td class='details-col-elapsed'><a href="log\{{r.name}}\log.html" target="view_window">{{r.name}}</a></td>
+                <td class="{{'success' if r.result else 'fail'}}">{{"成功" if r.result else "失败"}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+</html>
